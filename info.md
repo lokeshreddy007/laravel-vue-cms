@@ -49,3 +49,21 @@ php artisan route:list
 
 
 ```
+
+#### Cleaning Data base
+
+```php
+    php artisan migrate:refresh --seed
+```
+
+#### Linking Storage
+
+```php
+    php artisan storage:link
+```
+
+#### SoftDelete
+
+```php
+    php artisan make:migration add_soft_deletes_to_posts_table --table=posts
+```
