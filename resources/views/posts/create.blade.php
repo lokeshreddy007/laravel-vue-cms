@@ -4,35 +4,44 @@
     
     <div class="card card-default">
         <div class="card-header">
-            Create Post
+            {{isset($post) ? 'Edit Post' : 'Create Post'}}
         </div>
  
 
     <div class="card-body">
-        <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{isset($post) ? route('posts.update',$post->id) : route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             
+            @if (isset($post))
+                @method('PUT')                
+            @endif
             <div class="from-group">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" class="form-control">
+            <input type="text" name="title" id="title" class="form-control" value="{{isset($post) ? $post->title : ''}}">
             </div>
 
             <div class="from-group">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" cols="5" rows="5" class="form-control"></textarea>
+                <textarea name="description" id="description" cols="5" rows="5" class="form-control">{{isset($post) ? $post->description : ''}}
+                </textarea>
             </div>
 
             <div class="from-group">
                 <label for="content">Content</label>
-                <input id="content" type="hidden" name="content">
+                <input id="content" type="hidden" name="content" value="{{isset($post) ? $post->content : ''}}">
                 <trix-editor input="content"></trix-editor>
             </div>
 
             <div class="from-group">
                 <label for="published_at">Published At</label>
-                <input type="text" name="published_at" id="published_at" class="form-control">
+                <input type="text" name="published_at" id="published_at" class="form-control" value="{{isset($post) ? $post->published_at : ''}}">
             </div>
 
+            @if (isset($post))
+                <div class="from-group">
+                    <img src="{{asset('/storage/' . $post->image)}}" width="100%"  alt="Responsive image" />
+                </div>
+            @endif
             <div class="from-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" id="image" class="form-control">
@@ -40,7 +49,7 @@
 
             <div class="from-group mt-2">
                 <button type="submit" class="btn btn-success">
-                    Create Post
+                    {{isset($post) ? 'Update Post' : 'Create Post'}}
                 </button>
             </div>
 

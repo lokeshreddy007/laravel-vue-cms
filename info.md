@@ -46,7 +46,7 @@ php artisan route:list
     php artisan make:request Categories/CreateCategoryRequest
     php artisan make:request Categories/UpdateCategoriesRequest
     php artisan make:request Posts/CreatePostRequest
-
+    php artisan make:request Posts/UpdatePostRequest
 
 ```
 
