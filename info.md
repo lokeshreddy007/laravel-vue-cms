@@ -36,12 +36,16 @@ php artisan route:list
 
 ```php
     php artisan make:controller CategoriesController --resource
+    php artisan make:controller PostsController --resource
+
 ```
 
 #### Creating Request
 
 ```
-    php artisan make:request CreateCategoryRequest
+    php artisan make:request Categories/CreateCategoryRequest
     php artisan make:request Categories/UpdateCategoriesRequest
+    php artisan make:request Posts/CreatePostRequest
+
 
 ```
