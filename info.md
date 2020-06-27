@@ -31,6 +31,7 @@ php artisan route:list
     php artisan make:model Post -m
     php artisan make:model Category -m
     php artisan make:model Tag -m
+    php artisan make:migration create_post_tag_table --table=post_tag
 ```
 
 #### Creating Controller
