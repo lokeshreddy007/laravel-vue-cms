@@ -58,6 +58,7 @@ php artisan route:list
 
 ```php
     php artisan migrate:refresh --seed
+    php artisan db:seed
 ```
 
 #### Linking Storage
@@ -71,3 +72,12 @@ php artisan route:list
 ```php
     php artisan make:migration add_soft_deletes_to_posts_table --table=posts
 ```
+
+#### Create Seeder
+
+```php
+    php artisan make:seeder UsersTableSeeder
+```
+
+php artisan make:controller UsersController
+php artisan make:middleware VerifyIsAdmin
