@@ -9,6 +9,7 @@
  
 
     <div class="card-body">
+        @include('partials.error')
         <form action="{{isset($post) ? route('posts.update',$post->id) : route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             
