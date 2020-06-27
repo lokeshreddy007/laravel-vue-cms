@@ -30,6 +30,7 @@ php artisan route:list
 ```php
     php artisan make:model Post -m
     php artisan make:model Category -m
+    php artisan make:model Tag -m
 ```
 
 #### Creating Controller
@@ -43,10 +44,12 @@ php artisan route:list
 #### Creating Request
 
 ```
-    php artisan make:request Categories/CreateCategoryRequest
+    php artisan makerequest Categories/CreateCategoryRequest
     php artisan make:request Categories/UpdateCategoriesRequest
     php artisan make:request Posts/CreatePostRequest
     php artisan make:request Posts/UpdatePostRequest
+    php artisan make:request Tags/CreateTagRequest
+    php artisan make:request Tags/UpdateTagRequest
 
 ```
 
