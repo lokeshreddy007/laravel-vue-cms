@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,28 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('blog/posts/{post}', [PostsController::class, 'show'])->name('blog.show');
 
 Auth::routes();
 
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    
+
     Route::resource('categories', 'CategoriesController');
-    
+
     Route::resource('tags', 'TagsController');
 
     Route::resource('posts', 'PostsController')->middleware('auth');
-    
+
     Route::get('trashed-posts', 'PostsController@trashed')->name('trashed-posts.index');
-    
+
     Route::put('restore-post/{post}', 'PostsController@restorePost')->name('restore-post');
 });
 
 
 
-Route::group(['middleware' =>['auth','admin']], function () {
+Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('users', 'UsersController@index')->name('users.index');
     Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
     Route::put('users/profile', 'UsersController@update')->name('users.update-profile');

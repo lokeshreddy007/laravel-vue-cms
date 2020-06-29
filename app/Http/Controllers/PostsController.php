@@ -14,7 +14,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('verifyCategoriesCount')->only(['create','store']);
+        $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class PostsController extends Controller
     {
         // uploac img
         $image = $request->image->store('posts');
-        
+
         // create the post
         $post = Post::create([
             'title' => $request->title,
@@ -54,15 +54,16 @@ class PostsController extends Controller
             'content' => $request->content,
             'image' => $image,
             'published_at' => $request->published_at,
-            'category_id' => $request->category
+            'category_id' => $request->category,
+            'user_id' => auth()->user()->id
         ]);
-        
+
         if ($request->tags) {
             $post->tags()->attach($request->tags);
         }
         //flash message
         session()->flash('success', 'Post created successfully');
-        
+
         // redirect user
         return redirect(route('posts.index'));
     }
@@ -98,27 +99,27 @@ class PostsController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $data = $request->only(['title','description','content','published_at']);
-        
+        $data = $request->only(['title', 'description', 'content', 'published_at']);
+
         // check if new image
         if ($request->hasFile('image')) {
-            
+
             // upload
             $image = $request->image->store('posts');
-            
+
             // delete old image
             $post->deleteImage();
 
             // updated new image
             $data['image'] = $image;
         }
-        
+
         if ($request->tags) {
             $post->tags()->sync($request->tags);
         }
         // update attributes
         $post->update($data);
-        
+
         // flash message
         session()->flash('success', "Post updated successfully");
 
@@ -141,16 +142,16 @@ class PostsController extends Controller
         } else {
             $post->delete();
         }
-        
+
         session()->flash('success', 'Post deleted successfully');
         return redirect(route('posts.index'));
     }
 
     /**
-    * Disaply a list of all trashed posts
-    *
-    * @return \Illuminate\Http\Response
-    */
+     * Disaply a list of all trashed posts
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function trashed()
     {
         $trashed = Post::onlyTrashed()->get();

@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use App\Category;
 use App\Tag;
 use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class PostsTableSeeder extends Seeder
 {
@@ -14,6 +16,16 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        $author1 = User::create([
+            'name' => 'lokesh',
+            'email' => 'lok@gmail.com',
+            'password' => Hash::make('password')
+        ]);
+        $author2 = User::create([
+            'name' => 'hello',
+            'email' => 'hello@gmail.com',
+            'password' => Hash::make('password')
+        ]);
         $category1 = Category::create([
             'name' => 'News'
         ]);
@@ -28,28 +40,32 @@ class PostsTableSeeder extends Seeder
             'description' => 'We relocated our office to a new designed garage',
             'content' => 'We relocated our office to a new designed garage',
             'category_id' => $category1->id,
-            'image' => 'posts/1.jpg'
+            'image' => 'posts/1.jpg',
+            'user_id' => $author1->id
         ]);
-        $post2 = Post::create([
+        $post2 = $author2->posts()->create([
             'title' => 'We relocated our office to a new designed garage',
             'description' => 'We relocated our office to a new designed garage',
             'content' => 'We relocated our office to a new designed garage',
             'category_id' => $category2->id,
-            'image' => 'posts/2.jpg'
+            'image' => 'posts/2.jpg',
+            'user_id' => $author1->id
         ]);
-        $post3 = Post::create([
+        $post3 = $author1->posts()->create([
             'title' => 'We relocated our office to a new designed garage',
             'description' => 'We relocated our office to a new designed garage',
             'content' => 'We relocated our office to a new designed garage',
             'category_id' => $category3->id,
-            'image' => 'posts/3.jpg'
+            'image' => 'posts/3.jpg',
+            'user_id' => $author1->id
         ]);
-        $post4 = Post::create([
+        $post4 = $author2->posts()->create([
             'title' => 'We relocated our office to a new designed garage',
             'description' => 'We relocated our office to a new designed garage',
             'content' => 'We relocated our office to a new designed garage',
             'category_id' => $category2->id,
-            'image' => 'posts/4.jpg'
+            'image' => 'posts/4.jpg',
+            'user_id' => $author1->id
         ]);
         $tag1 = Tag::create([
             'name' => 'job'
