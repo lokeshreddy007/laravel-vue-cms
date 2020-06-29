@@ -82,3 +82,5 @@ php artisan route:list
 php artisan make:controller UsersController
 php artisan make:middleware VerifyIsAdmin
 php artisan make:request Users/UpdateProfileRequest
+
+php artisan make:seeder PostsTableSeeder
