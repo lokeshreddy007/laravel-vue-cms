@@ -86,4 +86,4 @@ php artisan make:request Users/UpdateProfileRequest
 php artisan make:seeder PostsTableSeeder
 php artisan make:controller WelcomeController
 php artisan make:controller Blog/PostsController
-
+php artisan vendor:publish
