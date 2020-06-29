@@ -84,3 +84,4 @@ php artisan make:middleware VerifyIsAdmin
 php artisan make:request Users/UpdateProfileRequest
 
 php artisan make:seeder PostsTableSeeder
+php artisan make:controller WelcomeController
