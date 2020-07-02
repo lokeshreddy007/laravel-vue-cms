@@ -20,7 +20,7 @@
 
 #### Home Page
 
-![home](home.png)
+![homepage](homepage.png)
 
 #### Dashboard
 
