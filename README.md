@@ -1,6 +1,6 @@
 # CMS App with Laravel
 
-| Features                                    | Implemented ?      |
+| Features                                    | Implemented        |
 | :------------------------------------------ | :----------------- |
 | Authentication                              | :heavy_check_mark: |
 | CRUD Post                                   | :heavy_check_mark: |
@@ -15,6 +15,8 @@
 | Filter by Tags                              | :heavy_check_mark: |
 | Filter by Category                          | :heavy_check_mark: |
 | Pagination                                  | :heavy_check_mark: |
+| Disqus                                      | :heavy_check_mark: |
+| Trix Editor                                 | :heavy_check_mark: |
 
 #### Home Page
 
@@ -23,5 +25,9 @@
 #### Dashboard
 
 ![dashboard](dashboard.png)
+
+#### Discus
+
+![discus](discus.png)
 
 Got your attention. Interested in it, just fork it or clone and Start coding... :blush:

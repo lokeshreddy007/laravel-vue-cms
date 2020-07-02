@@ -34,6 +34,6 @@
       <hr>
 
       <h6 class="sidebar-title">About</h6>
-      <p class="small-3">TheSaaS is a responsive, professional, and multipurpose SaaS, Software, Startup and WebApp landing template powered by Bootstrap 4. TheSaaS is a powerful and super flexible tool for any kind of landing pages.</p>
+      <p class="small-3">The is a responsive, professional, and multipurpose CMS, Software, Startup and WebApp landing template powered by Bootstrap 4. The is a powerful and super flexible tool for any kind of landing pages.</p>
     </div>
   </div>

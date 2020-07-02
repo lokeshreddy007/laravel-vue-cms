@@ -15,8 +15,8 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     <!-- Favicons -->
-  <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
-  <link rel="icon" href="{{asset('img/favicon.png')}}">
+
+  <link rel="icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}">
   </head>
 
   <body>
@@ -27,17 +27,18 @@
 
         <div class="navbar-left">
           <button class="navbar-toggler" type="button">&#9776;</button>
-        <a class="navbar-brand" href="{{route('welcome')}}">
-          <img class="logo-dark" src="{{asset('img/logo-dark.png')}}" alt="logo">
-          <img class="logo-light" src="{{asset('img/logo-light.png')}}" alt="logo">
+        <a class="navbar-brand" href="{{route('welcome')}}" style="font-size: 40px;";>
+          {{-- <img class="logo-dark" src="{{asset('img/logo-dark.png')}}" alt="logo"> --}}
+          <img src="{{asset('img/apple-icon-precomposed.png')}}" width="100px" height="100px" style="border-radius: 50px;" alt="logo">
+          <span style="color: #AA2930">Lokesh</span> Reddy
           </a>
         </div>
-
+        
         <section class="navbar-mobile">
           <span class="navbar-divider d-mobile-none"></span>
         </section>
 
-      <a class="btn btn-sm btn-round btn-success" href="{{route('login')}}">Login</a>
+      {{-- <a class="btn btn-sm btn-round btn-success" href="{{route('login')}}">Login</a> --}}
 
       </div>
     </nav><!-- /.navbar -->
@@ -53,14 +54,14 @@
       <div class="container">
         <div class="row gap-y align-items-center">
           <div class="col-6 col-lg-3">
-            <a href="/"><img src="{{asset('img/logo-dark.png')}}" alt="logo"></a>
+            <a href="/"><img src="{{asset('img/apple-icon-precomposed.png')}}" width="50px" height="50px" alt="logo"></a>
           </div>
           <div class="col-6 col-lg-3 text-right order-lg-last">
             <div class="social">
-              <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-facebook"></i></a>
+              <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-github"></i></a>
               <a class="social-twitter" href="https://twitter.com/thethemeio"><i class="fa fa-twitter"></i></a>
-              <a class="social-instagram" href="https://www.instagram.com/thethemeio/"><i class="fa fa-instagram"></i></a>
-              <a class="social-dribbble" href="https://dribbble.com/thethemeio"><i class="fa fa-dribbble"></i></a>
+              <a class="social-github" href="https://www.instagram.com/thethemeio/"><i class="fa fa-youtube"></i></a>
+              <a class="social-youtube" href="https://dribbble.com/thethemeio"><i class="fa fa-linkedin"></i></a>
             </div>
           </div>
         </div>
